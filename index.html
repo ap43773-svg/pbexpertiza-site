@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПБ Экспертиза | ИП Погребнов А.А. | ЭПБ КЛ, ТП, ТУ</title>
+    <meta name="description" content="Экспертиза промышленной безопасности проектов консервации, ликвидации и техперевооружения. Аттестованный эксперт Ростехнадзора.">
+    
+    <style>
+        :root {
+            --primary-color: #0f4c81; /* Синий инженерный */
+            --secondary-color: #e63946; /* Красный акцент */
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --gray-text: #6c757d;
+            --border-radius: 8px;
+            --header-height: 70px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background: #fff; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        section { padding: 60px 0; }
+        h2 { font-size: 2rem; margin-bottom: 30px; text-align: center; color: var(--primary-color); position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary-color); margin: 10px auto 0; }
+        
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.9rem; border: none; transition: all 0.3s ease; gap: 8px; }
+        .btn-primary { background-color: var(--primary-color); color: white; }
+        .btn-primary:hover { background-color: #0a365d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15, 76, 129, 0.3); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); }
+        .btn-outline:hover { background-color: var(--primary-color); color: white; }
+        .btn-white { background-color: white; color: var(--primary-color); border: 1px solid #eee; }
+        .btn-white:hover { background-color: #f0f0f0; }
+
+        /* Header & Nav */
+        header { 
+            background-color: #fff; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        /* Logo Wrapper - Static, No Rotation */
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .main-logo-container { 
+            width: 40px; 
+            height: 40px; 
+            background: #eef2f7; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .main-logo { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            /* Removed rotation animation */
+        }
+        .company-name { display: flex; flex-direction: column; line-height: 1.1; }
+        .brand-name { font-size: 1.1rem; font-weight: 800; color: var(--primary-color); }
+        .sub-brand { font-size: 0.75rem; font-weight: 600; color: var(--gray-text); text-transform: uppercase; }
+
+        /* Desktop Menu */
+        nav.desktop-nav ul { display: flex; gap: 20px; }
+        nav.desktop-nav a { font-weight: 500; color: var(--text-dark); font-size: 0.95rem; }
+        nav.desktop-nav a:hover { color: var(--primary-color); }
+
+        /* Mobile Burger Button */
+        .burger-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--primary-color); cursor: pointer; padding: 5px; }
+
+        /* Contact Info in Header */
+        .contact-info-desktop { display: flex; align-items: center; gap: 15px; }
+        .phone-number { font-weight: bold; font-size: 1rem; color: var(--primary-color); white-space: nowrap; }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: calc(100vh - var(--header-height));
+            min-height: 500px;
+            margin-top: var(--header-height);
+            overflow: hidden;
+            background-color: #0f4c81;
+        }
+        .slider-track {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .slide {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+            width: 90%;
+        }
+        .slide-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .slide-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+        }
+        .overlay-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255,255,255,1), transparent);
+            z-index: 3;
+            pointer-events: none;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 4;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        .dot.active {
+            background-color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 4;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            border-radius: 4px;
+        }
+        .prev-btn:hover, .next-btn:hover { background: rgba(0,0,0,0.6); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        /* Quick Links Section (New Feature) */
+        .quick-links-section {
+            background: #fff;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .link-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .link-card:hover {
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+        .link-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .link-title { font-weight: 600; color: var(--primary-color); font-size: 1rem; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { background: #fff; border: 1px solid #eee; border-radius: var(--border-radius); padding: 25px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--primary-color); }
+        .icon-box { width: 50px; height: 50px; background-color: #eef2f7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: var(--primary-color); font-size: 1.3rem; }
+        .service-card h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.1rem; }
+        .service-card p { font-size: 0.9rem; color: var(--gray-text); margin-bottom: 15px; flex-grow: 1; }
+        .service-card ul li { margin-bottom: 8px; font-size: 0.9rem; color: var(--gray-text); display: flex; align-items: start; }
+        .service-card ul li::before { content: "✓"; color: var(--secondary-color); margin-right: 8px; font-weight: bold; }
+
+        /* Workflow Section */
+        .workflow-section { background-color: var(--light-bg); }
+        .workflow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .step-item { text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: relative; }
+        .step-num { width: 35px; height: 35px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 0 auto 15px; font-size: 1rem; }
+        .step-desc { font-size: 0.85rem; color: var(--gray-text); }
+        .highlight-box { background: #e8f4fd; padding: 20px; border-left: 4px solid var(--primary-color); margin-top: 30px; border-radius: 4px; font-size: 0.95rem; }
+
+        /* Knowledge Base */
+        .kb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .kb-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 25px; text-align: center; display: flex; flex-direction: column; height: 100%; }
+        .kb-icon { font-size: 2rem; margin-bottom: 15px; }
+        .kb-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color); }
+        .kb-card p { font-size: 0.9rem; color: #666; margin-bottom: 20px; flex-grow: 1; }
+
+        /* News Feed */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .news-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; }
+        .news-date { font-size: 0.8rem; color: #999; margin-bottom: 10px; }
+        .news-title { font-weight: bold; color: var(--primary-color); margin-bottom: 10px; font-size: 1rem; line-height: 1.4; }
+        .news-excerpt { font-size: 0.9rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
+        .news-link { color: var(--primary-color); font-weight: bold; font-size: 0.9rem; margin-top: auto; }
+
+        /* Survey Form Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; overflow-y: auto; padding: 20px; }
+        .modal-content { background: white; padding: 25px; border-radius: 8px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #999; background: none; border: none; }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+        .form-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .submit-form-btn { width: 100%; padding: 15px; background: var(--secondary-color); color: white; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .submit-form-btn:hover { background: #c92a36; }
+        fieldset { border: 1px solid #ddd; padding: 15px; border-radius: 4px; margin-bottom: 20px; }
+        legend { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; padding: 0 10px; }
+
+        /* Footer */
+        footer { background-color: #222; color: #aaa; padding: 40px 0 20px; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col a:hover { color: white; text-decoration: underline; }
+        .requisites-mini { margin-top: 15px; font-size: 0.8rem; color: #ccc; line-height: 1.4; }
+        .copyright { text-align: center; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; }
+
+        /* Chat Widget Styles */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        .chat-toggle { width: 50px; height: 50px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 20px; border: none; }
+        .chat-window { position: absolute; bottom: 60px; right: 0; width: 300px; height: 400px; background-color: white; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-header { background-color: var(--primary-color); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-messages { flex: 1; padding: 15px; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
+        .message { max-width: 80%; padding: 10px 15px; border-radius: 18px; font-size: 0.9rem; }
+        .message.bot { background-color: white; color: var(--text-dark); align-self: flex-start; border: 1px solid #eee; }
+        .message.user { background-color: var(--primary-color); color: white; align-self: flex-end; }
+        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .qr-btn { background-color: #eef2f7; color: var(--primary-color); border: 1px solid var(--primary-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; }
+        .chat-input-area { padding: 10px; background-color: white; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        .send-btn { background-color: var(--primary-color); color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .desktop-nav { display: none; }
+            .burger-btn { display: block; }
+            .contact-info-desktop { display: none; }
+            
+            /* Mobile Menu Overlay */
+            .mobile-menu {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                z-index: 999;
+            }
+            .mobile-menu.active { display: flex; }
+            .mobile-menu a { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); padding: 10px 0; border-bottom: 1px solid #eee; }
+            .mobile-phone-btn { display: block; text-align: center; background: var(--primary-color); color: white; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+        }
+
+        @media (max-width: 768px) {
+            .slide-content h1 { font-size: 1.8rem; }
+            .slide-content p { font-size: 1rem; }
+            .prev-btn, .next-btn { display: none; } /* Hide arrows on mobile, rely on swipe/dots */
+            .links-grid { grid-template-columns: 1fr 1fr; } /* 2 columns for quick links */
+            .services-grid, .workflow-steps, .kb-grid, .news-grid { grid-template-columns: 1fr; } /* Single column stack */
+            section { padding: 40px 0; }
+            h2 { font-size: 1.6rem; }
+            .modal-content { padding: 20px; }
+        }
+        
+        @media (max-width: 480px) {
+            .links-grid { grid-template-columns: 1fr; } /* Stack buttons vertically on very small screens */
+            .brand-name { font-size: 1rem; }
+            .sub-brand { font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo-wrapper" onclick="scrollToTop()">
+                <div class="main-logo-container">
+                    <img src="logo-gear.png" alt="Логотип ПБЭ" class="main-logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:20px;\'>⚙️</span>';">
+                </div>
+                <div class="company-name">
+                    <span class="brand-name">ПРОМ<span style="color:#e63946">БЕЗОПАСНОСТЬ</span></span>
+                    <span class="sub-brand">ЭКСПЕРТНОЕ СООБЩЕСТВО</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#workflow">Как работаем</a></li>
+                    <li><a href="#knowledge-base">База знаний</a></li>
+                    <li><a href="#news-feed">Новости</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="contact-info-desktop">
+                <a href="tel:+79853999623" class="phone-number">+7 (985) 399-96-23</a>
+                <button onclick="openSurvey()" class="btn btn-primary">Заявка</button>
+            </div>
+
+            <!-- Burger Button for Mobile -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="closeMobileMenu()">Услуги</a>
+        <a href="#workflow" onclick="closeMobileMenu()">Как работаем</a>
+        <a href="#knowledge-base" onclick="closeMobileMenu()">База знаний</a>
+        <a href="#news-feed" onclick="closeMobileMenu()">Новости</a>
+        <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
+        <a href="tel:+79853999623" class="mobile-phone-btn">📞 +7 (985) 399-96-23</a>
+        <button onclick="openSurvey(); closeMobileMenu();" class="btn btn-primary" style="width:100%; margin-top:10px;">Заказать экспертизу</button>
+    </div>
+
+    <!-- Главный экран с КАРУСЕЛЬЮ -->
+    <section id="hero-slider" class="hero-slider">
+        <div class="slider-track">
+            <!-- Слайд 1 -->
+            <div class="slide active">
+                <img src="slide1.jpg" alt="Консервация и ликвидация ОПО">
+                <div class="slide-content">
+                    <h1>Экспертиза проектов КЛ</h1>
+                    <p>Консервация и Ликвидация опасных производственных объектов.<br>Соответствие ФНП и требованиям Ростехнадзора.</p>
+                    <button onclick="openSurvey()" class="btn btn-primary">Рассчитать стоимость</button>
+                </div>
+            </div>
+
+            <!-- Слайд 2 -->
+            <div class="slide">
+                <img src="slide2.jpg" alt="Техническое перевооружение">
+                <div class="slide-content">
+                    <h1>Экспертиза проектов ТП</h1>
+                    <p>Техническое перевооружение и модернизация оборудования.<br>Проверка совместимости и безопасности новых решений.</p>
+                    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" class="btn btn-outline" style="border-color:white; color:white;">Подробнее об услугах</button>
+                </div>
+            </div>
+
+            <!-- Слайд 3 -->
+            <div class="slide">
+                <img src="slide3.jpg" alt="Подача документов в РТН">
+                <div class="slide-content">
+                    <h1>Гарантия принятия в РТН</h1>
+                    <p>Аттестованный эксперт лично готовит заключение.<br>Инструкция по подаче через портал Госуслуг входит в услугу.</p>
+                    <button onclick="document.getElementById('knowledge-base').scrollIntoView({behavior:'smooth'})" class="btn btn-white">Скачать чек-лист</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Навигационные точки -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+
+        <!-- Стрелки -->
+        <button class="prev-btn" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</button>
+        <button class="next-btn" onclick="changeSlide(1)" aria-label="Next">&#10095;</button>
+        
+        <div class="overlay-gradient"></div>
+    </section>
+
+    <!-- Быстрые Ссылки (Новый блок) -->
+    <section class="quick-links-section">
+        <div class="container">
+            <div class="links-grid">
+                <a href="#services" class="link-card">
+                    <span class="link-icon">🛠️</span>
+                    <span class="link-title">Наши Услуги</span>
+                </a>
+                <a href="#workflow" class="link-card">
+                    <span class="link-icon">🔄</span>
+                    <span class="link-title">Как мы работаем</span>
+                </a>
+                <a href="#knowledge-base" class="link-card">
+                    <span class="link-icon">📂</span>
+                    <span class="link-title">База Знаний</span>
+                </a>
+                <a href="#news-feed" class="link-card">
+                    <span class="link-icon">📰</span>
+                    <span class="link-title">Новости ПБ</span>
+                </a>
+                <a href="#contacts" class="link-card">
+                    <span class="link-icon">📞</span>
+                    <span class="link-title">Контакты</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+        <div class="container">
+            <h2>Направления деятельности</h2>
+            <div class="services-grid">
+                
+                <!-- Карточка 1 -->
+                <div class="service-card">
+                    <div class="icon-box">🛑</div>
+                    <h3>Консервация и Ликвидация (КЛ)</h3>
+                    <p>Экспертиза промышленных безопасности проектов на консервацию или ликвидацию ОПО.</p>
+                    <ul>
+                        <li>Оценка рисков при остановке эксплуатации</li>
+                        <li>Проверка планов демонтажа и утилизации</li>
+                        <li>Соответствие требованиям ФНП</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="service-card">
+                    <div class="icon-box">⚙️</div>
+                    <h3>Техническое Перевооружение (ТП)</h3>
+                    <p>ЭПБ документации на модернизацию и замену оборудования на действующих объектах.</p>
+                    <ul>
+                        <li>Анализ совместимости нового и старого оборудования</li>
+                        <li>Проверка расчетов прочности</li>
+                        <li>Оценка влияния изменений на безопасность</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="service-card">
+                    <div class="icon-box">🔧</div>
+                    <h3>Экспертиза технических устройств (ТУ)</h3>
+                    <p>Продление срока службы или оценка остаточного ресурса оборудования.</p>
+                    <ul>
+                        <li>Сосуды под давлением, котлы, лифты</li>
+                        <li>Трубопроводы пара и горячей воды</li>
+                        <li>Подготовка заключения для регистрации</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="service-card">
+                    <div class="icon-box">📋</div>
+                    <h3>Внешний аудит промышленной безопасности</h3>
+                    <p>Независимая проверка готовности предприятия к проверкам Ростехнадзора.</p>
+                    <ul>
+                        <li>Аудит локальных актов и инструкций</li>
+                        <li>Проверка журналов учета и обучения</li>
+                        <li>План устранения несоответствий</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="service-card">
+                    <div class="icon-box">📝</div>
+                    <h3>Поддержка при подаче в РТН</h3>
+                    <p>Помощь в подготовке пакета документов для регистрации через Госуслуги.</p>
+                    <ul>
+                        <li>Формирование заявления на ЕСИА</li>
+                        <li>Проверка комплектности скан-копий</li>
+                        <li>Консультации по ошибкам инспекторов</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Схема работы -->
+    <section id="workflow" class="workflow-section">
+        <div class="container">
+            <h2>Простой путь к регистрации в РТН</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--gray-text);">
+                Мы адаптируем схему под ваши задачи: от подготовки заключения до комплексного сопровождения.
+            </p>
+
+            <div class="workflow-steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h4>Заявка и Анкета</h4>
+                    <p class="step-desc">Вы заполняете опросник. Я оцениваю объем работ.</p>
+                </div>
+                <div class="step-item" style="border-top: 3px solid var(--primary-color);">
+                    <div class="step-num">2</div>
+                    <h4>Подбор эксперта</h4>
+                    <p class="step-desc"><strong>Вариант А:</strong> Работа напрямую со мной (ИП).</p>
+                </div>
+                <div class="step-item" style="border-top: 3px solid var(--secondary-color);">
+                    <div class="step-num">3</div>
+                    <h4>Подбор компании</h4>
+                    <p class="step-desc"><strong>Вариант Б:</strong> Привлечение партнера-лицензиата для сложных задач.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <h4>Договор</h4>
+                    <p class="step-desc">Подписываем договор возмездного оказания услуг.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">5</div>
+                    <h4>Экспертиза</h4>
+                    <p class="step-desc">Анализ документации, подготовка текста Заключения ЭПБ.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">6</div>
+                    <h4>Передача файлов</h4>
+                    <p class="step-desc">Вы получаете PDF и инструкцию по подаче.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">7</div>
+                    <h4>Подача Заказчиком</h4>
+                    <p class="step-desc">Вы загружаете документ в ЛК Госуслуг самостоятельно.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>💡 Почему это выгодно?</strong><br>
+                Вы не переплачиваете за посредников. Если задачу могу решить я один — мы работаем напрямую. Если нужен масштаб — я организую его через надежного партнера.
+            </div>
+        </div>
+    </section>
+
+    <!-- База знаний -->
+    <section id="knowledge-base">
+        <div class="container">
+            <h2>Полезные материалы и Документы</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--gray-text);">
+                Скачайте чек-лист документов, инструкцию по подаче и ознакомьтесь с лицензиями партнеров.
+            </p>
+            
+            <div class="kb-grid">
+                <div class="kb-card">
+                    <div class="kb-icon">📄</div>
+                    <h3>Чек-лист исходных данных</h3>
+                    <p>Список из 16 пунктов, необходимых для подготовки Заключения ЭПБ.</p>
+                    <a href="checklist_epb.pdf" download class="btn btn-outline" style="width: 100%;">Скачать чек-лист</a>
+                </div>
+
+                <div class="kb-card">
+                    <div class="kb-icon">💻</div>
+                    <h3>Инструкция: Подача через ЕСИА</h3>
+                    <p>Пошаговое руководство по загрузке Заключения на портале Госуслуг.</p>
+                    <a href="guide_gosuslugi.pdf" download class="btn btn-outline" style="width: 100%;">Скачать инструкцию</a>
+                </div>
+
+                 <div class="kb-card">
+                    <div class="kb-icon">🏢</div>
+                    <h3>Лицензии организаций</h3>
+                    <p>Копии действующих лицензий Ростехнадзора компаний-партнеров.</p>
+                    <a href="licenses.pdf" target="_blank" class="btn btn-outline" style="width: 100%;">Смотреть лицензии</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news-feed" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Актуальные изменения в ПБ</h2>
+            <p style="text-align: center; color: var(--gray-text); margin-bottom: 30px;">
+                Обзор важных изменений законодательства и практики применения ФНП.
+            </p>
+            
+            <div id="manual-news-container" class="news-grid">
+                <!-- Пример новости 1 -->
+                <article class="news-card">
+                    <time datetime="2026-11-17" class="news-date">17 Ноября 2026</time>
+                    <h3 class="news-title">Изменения в порядке подачи ЭПБ через Госуслуги</h3>
+                    <p class="news-excerpt">
+                        <strong>Суть:</strong> Ростехнадзор уточнил требования к формату скан-копий. Теперь файлы должны быть в формате PDF/A размером не более 5 МБ.<br><br>
+                        <em>Комментарий эксперта:</em> Это изменение направлено на снижение нагрузки на серверы портала. Рекомендуем предварительно сжимать изображения.
+                    </p>
+                    <a href="https://www.gosuslugi.ru/" target="_blank" class="news-link">Читать оригинал →</a>
+                </article>
+
+                <!-- Пример новости 2 -->
+                <article class="news-card">
+                    <time datetime="2026-11-14" class="news-date">14 Ноября 2026</time>
+                    <h3 class="news-title">Новый приказ Минпромторга по аттестации экспертов</h3>
+                    <p class="news-excerpt">
+                        <strong>Суть:</strong> Опубликован проект приказа о продлении сроков переаттестации для экспертов области Б.7.<br><br>
+                        <em>Комментарий эксперта:</em> Отличная новость для коллег. Следите за официальным опубликованием на pravo.gov.ru.
+                    </p>
+                    <a href="https://pravo.gov.ru/" target="_blank" class="news-link">Читать приказ →</a>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://pravo.gov.ru/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Все документы на pravo.gov.ru</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" style="background-color: var(--primary-color); color: white; padding: 60px 0;">
+        <div class="container contact-wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+            <div>
+                <h2 style="color: white; text-align: left; margin-bottom: 20px;">Свяжитесь со мной</h2>
+                <p style="opacity: 0.9;">Ответы на вопросы и расчет стоимости — лично от эксперта</p>
+                <ul style="margin-top: 20px; font-size: 1.1rem;">
+                    <li style="margin-bottom: 15px;">📞 <a href="tel:+79853999623" style="color:white; text-decoration:underline;">+7 (985) 399-96-23</a></li>
+                    <li style="margin-bottom: 15px;">✉️ <a href="mailto:alpo.71@ya.ru" style="color:white; text-decoration:underline;">alpo.71@ya.ru</a></li>
+                    <li style="margin-bottom: 15px;">📍 г. Москва</li>
+                </ul>
+            </div>
+            <div style="background: white; padding: 30px; border-radius: 8px; color: var(--text-dark);">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Быстрая заявка</h3>
+                <!-- FORMSPREE INTEGRATION HERE -->
+                               <!-- БЫСТРАЯ ЗАЯВКА С ИНТЕГРАЦИЕЙ FORMSPREE -->
+                <form action="https://formspree.io/f/xppddjvz" method="POST">
+                    <!-- Настройки письма -->
+                    <input type="hidden" name="_subject" value="🔥 Новая заявка с сайта ПБ Экспертиза">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Быстрая заявка</h3>
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше Имя *" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Телефон *" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select name="service_type" class="form-input">
+                            <option value="">Выберите услугу...</option>
+                            <option value="kl_conserv">Консервация (КЛ)</option>
+                            <option value="kl_liq">Ликвидация (КЛ)</option>
+                            <option value="tp_modern">Техперевооружение (ТП)</option>
+                            <option value="tu_expertise">Экспертиза ТУ</option>
+                            <option value="audit">Внешний аудит ПБ</option>
+                            <option value="other">Другое / Вопрос</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Комментарий или детали объекта" class="form-input" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <p><strong>ИП Погребнов А.А.</strong><br>
+                    ИНН: <u>[643801754198]</u><br> 
+                    ОГРНИП: <u>[320508100112656]</u><br>
+                    Email: alpo.71@ya.ru</p>
+                    
+                    <div class="requisites-mini">
+                        <em>Банковские реквизиты предоставляются по запросу для заключения договора.</em>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="checklist_epb.pdf" download>Чек-лист ЭПБ (PDF)</a></li>
+                        <li><a href="guide_gosuslugi.pdf" download>Инструкция Госуслуги (PDF)</a></li>
+                        <li><a href="licenses.pdf" target="_blank">Лицензии партнеров</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>+7 (985) 399-96-23</li>
+                        <li>alpo.71@ya.ru</li>
+                        <li>г. Москва</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 ИП Погребнов А.А. Все права защищены.<br>
+                <small>Услуги оказываются на основании договоров возмездного оказания услуг.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО ОПРОСНИКА -->
+    <div id="surveyModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeSurvey()">&times;</button>
+            <h3 style="color: var(--primary-color); margin-bottom: 20px;">Анкета для ЭПБ (КЛ / ТП / ТУ)</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+                Пожалуйста, заполните основные данные. Это позволит мне оценить объем работ и подготовить точную смету.
+            </p>
+            
+            <form onsubmit="event.preventDefault(); alert('Данные приняты! Эксперт свяжется с вами.'); closeSurvey();">
+                
+                <!-- БЛОК 1 -->
+                <fieldset>
+                    <legend>1. Объект экспертизы</legend>
+                    <div class="form-group">
+                        <label class="form-label">Тип проекта *</label>
+                        <select class="form-input" required onchange="toggleSpecificFields(this.value)">
+                            <option value="">Выберите...</option>
+                            <option value="kl_conserv">Консервация оборудования/объекта</option>
+                            <option value="kl_liq">Ликвидация (демонтаж/утилизация)</option>
+                            <option value="tp_modern">Техническое перевооружение (модернизация)</option>
+                            <option value="tp_repl">Замена узлов/агрегатов</option>
+                            <option value="tu_expertise">Экспертиза ТУ (сосуды, котлы и т.д.)</option>
+                            <option value="audit">Внешний аудит ПБ</option>
+                        </select>
+                    </div>
+
+                    <div id="fields_liq" style="display:none; background:#fff3cd; padding:10px; border-radius:4px; margin-top:10px;">
+                        <label class="form-label">Есть ли акт обследования состояния объекта?</label>
+                        <div class="checkbox-group"><input type="checkbox"> Да, есть скан</div>
+                    </div>
+
+                    <div id="fields_tp" style="display:none; background:#e8f4fd; padding:10px; border-radius:4px; margin-top:10px;">
+                        <label class="form-label">Есть ли паспорта на НОВОЕ оборудование?</label>
+                        <div class="checkbox-group"><input type="checkbox"> Да, перечень готов</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Статус ОПО *</label>
+                        <div class="checkbox-group" style="flex-direction: column; align-items: flex-start; gap: 5px;">
+                            <label><input type="radio" name="opo_status" value="registered" checked> ОПО зарегистрировано в РТН</label>
+                            <label><input type="radio" name="opo_status" value="new"> Новое строительство</label>
+                            <label><input type="radio" name="opo_status" value="unknown"> Не знаю</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Регистрационный № ОПО (если есть)</label>
+                        <input type="text" class="form-input" placeholder="Например: АБ-123456">
+                    </div>
+                </fieldset>
+
+                <!-- БЛОК 2 -->
+                <fieldset>
+                    <legend>2. Участники процесса</legend>
+                    <div class="form-group">
+                        <label class="form-label">Наименование Заказчика</label>
+                        <input type="text" class="form-input" placeholder="ООО 'Ромашка'">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Наименование Проектной организации</label>
+                        <input type="text" class="form-input" placeholder="ООО 'ПроектСтрой'">
+                    </div>
+                </fieldset>
+
+                <!-- БЛОК 3 -->
+                <fieldset>
+                    <legend>3. Ваши контакты</legend>
+                    <div class="form-group">
+                        <label class="form-label">ФИО контактного лица *</label>
+                        <input type="text" class="form-input" placeholder="Иванов Иван Иванович" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Телефон *</label>
+                        <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" placeholder="mail@example.com" required>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="submit-form-btn">Отправить анкету эксперту</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ЧАТ БОТ -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle">💬</button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-title">Ассистент Эксперта</div>
+                <button class="close-chat" id="closeChat" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Введите вопрос..." disabled>
+                <button class="send-btn" id="sendBtn" disabled>➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Scroll Helper
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        // Mobile Menu Logic
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        burgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            burgerBtn.innerText = mobileMenu.classList.contains('active') ? '×' : '☰';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            burgerBtn.innerText = '☰';
+        }
+
+        // Close menu when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Survey Modal Logic
+        function openSurvey() { document.getElementById('surveyModal').style.display = 'flex'; }
+        function closeSurvey() { document.getElementById('surveyModal').style.display = 'none'; }
+        window.onclick = function(event) {
+            const modal = document.getElementById('surveyModal');
+            if (event.target == modal) modal.style.display = "none";
+        }
+
+        // Toggle Specific Fields in Survey
+        function toggleSpecificFields(value) {
+            const liqFields = document.getElementById('fields_liq');
+            const tpFields = document.getElementById('fields_tp');
+            
+            if(liqFields) liqFields.style.display = 'none';
+            if(tpFields) tpFields.style.display = 'none';
+
+            if (value === 'kl_liq') {
+                if(liqFields) liqFields.style.display = 'block';
+            } else if (value.startsWith('tp_')) {
+                if(tpFields) tpFields.style.display = 'block';
+            }
+        }
+
+        // CAROUSEL LOGIC
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const track = document.querySelector('.slider-track');
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlideIndex * 100}vw)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+        }
+
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Chat Bot Logic (Simplified for performance)
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        let isOpen = false;
+
+        chatToggle.addEventListener('click', () => {
+            if (!isOpen) { 
+                chatWindow.style.display = 'flex'; 
+                isOpen = true; 
+                initBot(); 
+            } else { 
+                chatWindow.style.display = 'none'; 
+                isOpen = false; 
+            }
+        });
+        closeChat.addEventListener('click', () => { 
+            chatWindow.style.display = 'none'; 
+            isOpen = false; 
+        });
+
+        function initBot() {
+            if (chatMessages.children.length > 0) return;
+            addMessage("bot", "Здравствуйте! Я ассистент ИП Погребнова А.А.");
+            setTimeout(() => {
+                addQuickReplies([
+                    { text: "Стоимость ЭПБ", action: "price" },
+                    { text: "Как подать?", action: "submission" },
+                    { text: "Заполнить анкету", action: "survey" }
+                ]);
+            }, 1000);
+        }
+
+        function addMessage(sender, text) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.innerHTML = text;
+            chatMessages.appendChild(div);
+            scrollToBottom();
+        }
+
+        function addQuickReplies(options) {
+            const container = document.createElement('div');
+            container.className = 'quick-replies';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'qr-btn';
+                btn.innerText = opt.text;
+                btn.onclick = () => handleAction(opt.action);
+                container.appendChild(btn);
+            });
+            chatMessages.appendChild(container);
+            scrollToBottom();
+        }
+
+        function handleAction(action) {
+            const oldQr = chatMessages.querySelector('.quick-replies');
+            if(oldQr) oldQr.remove();
+
+            if(action === 'price') {
+                addMessage("user", "Стоимость");
+                setTimeout(() => {
+                    addMessage("bot", "Цена зависит от объема. Заполните анкету, рассчитаю за час.");
+                    addQuickReplies([{ text: "Открыть анкету", action: "open_survey_modal" }]);
+                }, 800);
+            } else if (action === 'submission') {
+                addMessage("user", "Как подавать?");
+                setTimeout(() => {
+                    addMessage("bot", "Через Госуслуги. Я дам инструкцию и готовый PDF.");
+                    addQuickReplies([{ text: "Хочу заказать", action: "order_now" }]);
+                }, 800);
+            } else if (action === 'survey' || action === 'open_survey_modal') {
+                closeChat.click(); 
+                openSurvey(); 
+            } else if (action === 'order_now') {
+                closeChat.click();
+                document.getElementById('contacts').scrollIntoView({behavior: 'smooth'});
+            }
+        }
+
+        function scrollToBottom() { chatMessages.scrollTop = chatMessages.scrollHeight; }
+    </script>
+</body>
+</html>
